@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .note-input {
+            margin-bottom: 15px;
+        }
+
+        .note-table {
+            margin-top: 20px;
+        }
+
+        #edit-form {
+            display: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Notes App</h1>
+
+        <div id="message" class="alert alert-info text-center" style="display: none;"></div>
+
+        <div class="note-input">
+            <input type="text" id="title" class="form-control" placeholder="Title">
+        </div>
+        <div class="note-input">
+            <textarea id="content" class="form-control" placeholder="Content"></textarea>
+        </div>
+        <button onclick="addNote()" class="btn btn-primary">Add Note</button>
+
+        <div id="edit-form">
+            <input type="hidden" id="editId">
+            <input type="text" id="editTitleInput" class="form-control mb-2" placeholder="Edit Title">
+            <textarea id="editContentInput" class="form-control mb-2" placeholder="Edit Content"></textarea>
+            <button onclick="saveEditedNote()" class="btn btn-primary">Save Edited Note</button>
+            <button onclick="cancelEdit()" class="btn btn-secondary">Cancel</button>
+        </div>
+
+        <h2 class="mt-4">Notes List</h2>
+        <table id="notes-table" class="table table-striped note-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="notes-body">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="renderer.js"></script>
+    <script>
+        function cancelEdit() {
+            document.getElementById('edit-form').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
