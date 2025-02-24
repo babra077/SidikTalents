@@ -1,0 +1,20 @@
+@backend_HostAddress = http://localhost:5044
+
+### Get all notes
+GET {{backend_HostAddress}}/api/Notes
+Accept: application/json
+
+### Get a single note by ID
+GET {{backend_HostAddress}}/api/Notes/1
+Accept: application/json
+
+### Create a new note
+POST {{backend_HostAddress}}/api/Notes
+Content-Type: application/json
+
+### Update an existing note
+PUT {{backend_HostAddress}}/api/Notes/1
+Content-Type: application/json
+
+### Delete a note
+DELETE {{backend_HostAddress}}/api/Notes/1
